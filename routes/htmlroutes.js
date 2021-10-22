@@ -1,6 +1,5 @@
 // dependencies
 const path = require("path");
-const app = require("../../../projects/express/28-Stu_Mini-Project/Develop/routes");
 
 // routers
 module.exports = Function (app) {
