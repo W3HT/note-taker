@@ -10,7 +10,7 @@ const app = express();
 
 // TODO: Implement middleware for the parsing of JSON data
 // TODO: Implement middleware for parsing of URL encoded data
-// middleware to server static files
+// middleware to serve static files
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
