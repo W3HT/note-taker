@@ -1,5 +1,6 @@
 // require dependencies 
 const express = require("express");
+
 const path = require("path");
 
 // initialize port and express app
@@ -17,12 +18,12 @@ app.use(express.static('public'));
 
 
 // routers
-require('./routes/apiroutes')(app);
-require('./routes/htmlroutes')(app);
+require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app);
 // Tell express to start listening!
-app.listen(PORT, () =>
-  console.log(`Express server listening on port ${PORT}!`)
-);
+app.listen(PORT, function () {
+  console.log(`Express server listening on port http://localhost:${PORT}!`)
+});
 
 
 // - GET /notes should return the notes.html file.

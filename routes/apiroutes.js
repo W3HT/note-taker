@@ -14,7 +14,7 @@ app.get("/api/notes", (req, res) => {
 
     // read db.json
     let data = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
-        console.log("GET Notes: " = JSON.stringify(data));
+        console.log("GET Notes: " + JSON.stringify(data));
 
     // send response
     res.json(data);

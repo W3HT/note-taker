@@ -2,7 +2,7 @@
 const path = require("path");
 
 // routers
-module.exports = Function (app) {
+module.exports = function (app) {
 
     // html get notes
     app.get('/notes', function (res, req) {
