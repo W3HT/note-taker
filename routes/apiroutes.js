@@ -14,7 +14,7 @@ app.get("/api/notes", (req, res) => {
 
     // read db.json
     let data = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
-        console.log("Notes: " = JSON.stringify(data));
+        console.log("GET Notes: " = JSON.stringify(data));
 
     // send response
     res.json(data);
@@ -25,17 +25,28 @@ app.get("/api/notes", (req, res) => {
 app.post("./api/notes", (req, res) => {
     
     // new note
-
+    const currentNote = request.body;
+        console.log("POST - Current Note : " + JSON.stringify(currentNote));
+    
     // assign unique id
+    currentNote.id = uuidv4();
     // read db.json
+    let data = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
     // push current note - db.json
+    data.push(currentNote);
+    // write to db.json
+    fs.writeFileSync('./db/db.json', JSON.stringify(data));
+
+    // send response
+    res.json(data);
+
+});
+// bonus api delete request ?!?!?!!
+    // fetch id
+    // read db.json
+    // filter out note to delete
     // write to db.json
     // send response
-
-
-})
-// bonus api delete request ?!?!?!!
-
 
 }
 
