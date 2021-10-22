@@ -18,8 +18,8 @@ app.use(express.static('public'));
 
 
 // routers
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+require("./routes/apiroutes")(app);
+require("./routes/htmlroutes")(app);
 // Tell express to start listening!
 app.listen(PORT, function () {
   console.log(`Express server listening on port http://localhost:${PORT}!`)
