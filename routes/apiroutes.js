@@ -42,11 +42,26 @@ app.post("./api/notes", (req, res) => {
 
 });
 // bonus api delete request ?!?!?!!
+app.delete("/api/notes/:id", (res, req) => {
+
     // fetch id
+    let noteIdNum = request.params.id.toString();
+        console.log(`DELETE - NoteId: ${noteIdNum}` );
+    
     // read db.json
+    let data = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
     // filter out note to delete
+    const dataNew = data.filter( note => note.id.toString() !== noteIdNum );
+
     // write to db.json
+    fs.writeFileSync('./db/db.json', JSON.stringify(dataNew));
+        console.log(`Note id: ${noteIdNum}, deleted successfully.` )
     // send response
+    res.json(dataNew);
+
+
+});
+   
 
 }
 
