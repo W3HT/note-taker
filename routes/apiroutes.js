@@ -1,32 +1,32 @@
 // dependencies
 const fs = require("fs");
+const router = require('express').Router();
+const path = require("path")
 
 // uuid package
 const { v4: uuidv4 } = require('uuid');
 
 // routing
-module.exports - function (app){
+module.exports = app => {
 
 
 // api get request
-app.get("/api/notes", (req, res) => {
+app.get("/notes", (req, res) => {
     console.log("Grabbing notes");
 
     // read db.json
-    let data = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
-        console.log("GET Notes: " + JSON.stringify(data));
-
+    fs.readFile(path.)
     // send response
     res.json(data);
 
 })
 
 // api post request
-app.post("./api/notes", (req, res) => {
+router.post("/api/notes", (req, res) => {
     
     // new note
     const currentNote = request.body;
-        console.log("POST - Current Note : " + JSON.stringify(currentNote));
+        console.log(`POST - Current Note : ` + JSON.stringify(currentNote));
     
     // assign unique id
     currentNote.id = uuidv4();
@@ -42,7 +42,7 @@ app.post("./api/notes", (req, res) => {
 
 });
 // bonus api delete request ?!?!?!!
-app.delete("/api/notes/:id", (res, req) => {
+router.delete("/api/notes/:id", (res, req) => {
 
     // fetch id
     let noteIdNum = request.params.id.toString();
